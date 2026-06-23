@@ -1,0 +1,495 @@
+/* ─── Prose / Typography Styles ───────────────────────────────────────────── */
+/* Styles for ProseMirror content inside the editor.                          */
+/* This is the most critical stylesheet — controls how content looks.         */
+
+/* ─── Base ─────────────────────────────────────────────────────────────────── */
+
+.ProseMirror {
+  font-family: var(--rp-font-sans);
+  font-size: var(--rp-text-base);
+  line-height: var(--rp-leading-relaxed);
+  color: var(--rp-fg-primary);
+  outline: none;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ProseMirror > *:first-child {
+  margin-top: 0;
+}
+
+.ProseMirror > *:last-child {
+  margin-bottom: 0;
+}
+
+/* ─── Paragraphs ───────────────────────────────────────────────────────────── */
+
+.ProseMirror p {
+  margin: 0 0 var(--rp-space-2) 0;
+  line-height: var(--rp-leading-relaxed);
+}
+
+.ProseMirror p:last-child {
+  margin-bottom: 0;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: var(--rp-fg-placeholder);
+  pointer-events: none;
+  height: 0;
+  font-style: normal;
+}
+
+/* ─── Headings ─────────────────────────────────────────────────────────────── */
+
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3,
+.ProseMirror h4,
+.ProseMirror h5,
+.ProseMirror h6 {
+  font-family: var(--rp-font-sans);
+  font-weight: var(--rp-weight-semibold);
+  line-height: var(--rp-leading-tight);
+  color: var(--rp-fg-primary);
+  margin-top: var(--rp-space-6);
+  margin-bottom: var(--rp-space-2);
+}
+
+.ProseMirror > h1:first-child,
+.ProseMirror > h2:first-child,
+.ProseMirror > h3:first-child,
+.ProseMirror > h4:first-child,
+.ProseMirror > h5:first-child,
+.ProseMirror > h6:first-child {
+  margin-top: 0;
+}
+
+.ProseMirror h1 {
+  font-size: var(--rp-text-2xl);
+  font-weight: var(--rp-weight-bold);
+  letter-spacing: -0.01em;
+}
+
+.ProseMirror h2 {
+  font-size: var(--rp-text-xl);
+  font-weight: var(--rp-weight-semibold);
+  letter-spacing: -0.005em;
+}
+
+.ProseMirror h3 {
+  font-size: var(--rp-text-lg);
+  font-weight: var(--rp-weight-semibold);
+}
+
+.ProseMirror h4 {
+  font-size: var(--rp-text-md);
+  font-weight: var(--rp-weight-semibold);
+}
+
+.ProseMirror h5 {
+  font-size: var(--rp-text-base);
+  font-weight: var(--rp-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.ProseMirror h6 {
+  font-size: var(--rp-text-sm);
+  font-weight: var(--rp-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--rp-fg-secondary);
+}
+
+/* ─── Bold / Italic / Underline / Strikethrough ────────────────────────────── */
+
+.ProseMirror strong {
+  font-weight: var(--rp-weight-semibold);
+}
+
+.ProseMirror em {
+  font-style: italic;
+}
+
+.ProseMirror u {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.ProseMirror s {
+  text-decoration: line-through;
+  color: var(--rp-fg-tertiary);
+}
+
+/* ─── Links ────────────────────────────────────────────────────────────────── */
+
+.ProseMirror a {
+  color: var(--rp-fg-link);
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: color var(--rp-transition-fast), border-color var(--rp-transition-fast);
+}
+
+.ProseMirror a:hover {
+  color: var(--rp-fg-link-hover);
+  border-bottom-color: var(--rp-fg-link-hover);
+}
+
+/* ─── Inline Code ──────────────────────────────────────────────────────────── */
+
+.ProseMirror code {
+  font-family: var(--rp-font-mono);
+  font-size: 0.9em;
+  color: var(--rp-fg-code);
+  background: var(--rp-bg-code);
+  padding: 1px 5px;
+  border-radius: var(--rp-radius-sm);
+  font-weight: var(--rp-weight-normal);
+}
+
+/* ─── Code Blocks ──────────────────────────────────────────────────────────── */
+
+.ProseMirror pre {
+  font-family: var(--rp-font-mono);
+  font-size: var(--rp-text-sm);
+  line-height: var(--rp-leading-loose);
+  background: var(--rp-bg-code-block);
+  color: var(--rp-fg-primary);
+  border: 1px solid var(--rp-border-subtle);
+  border-radius: var(--rp-radius-md);
+  padding: var(--rp-space-4);
+  margin: var(--rp-space-3) 0;
+  overflow-x: auto;
+  tab-size: 2;
+}
+
+.ProseMirror pre code {
+  font-size: inherit;
+  color: inherit;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* ─── Blockquotes ──────────────────────────────────────────────────────────── */
+
+.ProseMirror blockquote {
+  border-left: 3px solid var(--rp-accent);
+  padding-left: var(--rp-space-4);
+  margin: var(--rp-space-3) 0;
+  color: var(--rp-fg-secondary);
+}
+
+.ProseMirror blockquote p {
+  margin-bottom: var(--rp-space-1);
+}
+
+.ProseMirror blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* ─── Lists ────────────────────────────────────────────────────────────────── */
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding-left: var(--rp-space-6);
+  margin: var(--rp-space-2) 0;
+}
+
+.ProseMirror ul {
+  list-style-type: disc;
+}
+
+.ProseMirror ol {
+  list-style-type: decimal;
+}
+
+.ProseMirror li {
+  margin-bottom: var(--rp-space-0-5);
+  line-height: var(--rp-leading-relaxed);
+}
+
+.ProseMirror li p {
+  margin: 0;
+}
+
+.ProseMirror li > ul,
+.ProseMirror li > ol {
+  margin: var(--rp-space-0-5) 0;
+}
+
+/* Nested list styles */
+.ProseMirror ul ul {
+  list-style-type: circle;
+}
+
+.ProseMirror ul ul ul {
+  list-style-type: square;
+}
+
+/* ─── Task Lists ───────────────────────────────────────────────────────────── */
+
+.ProseMirror ul[data-type="taskList"] {
+  list-style: none;
+  padding-left: var(--rp-space-1);
+}
+
+.ProseMirror ul[data-type="taskList"] li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--rp-space-2);
+  margin-bottom: var(--rp-space-1);
+}
+
+.ProseMirror ul[data-type="taskList"] li label {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.ProseMirror ul[data-type="taskList"] li label input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--rp-border-strong);
+  border-radius: var(--rp-radius-xs);
+  cursor: pointer;
+  position: relative;
+  transition: all var(--rp-transition-fast);
+  background: var(--rp-bg-primary);
+}
+
+.ProseMirror ul[data-type="taskList"] li label input[type="checkbox"]:hover {
+  border-color: var(--rp-accent);
+}
+
+.ProseMirror ul[data-type="taskList"] li label input[type="checkbox"]:checked {
+  background: var(--rp-accent);
+  border-color: var(--rp-accent);
+}
+
+.ProseMirror ul[data-type="taskList"] li label input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--rp-fg-inverse);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.ProseMirror ul[data-type="taskList"] li[data-checked="true"] > div > p {
+  color: var(--rp-fg-tertiary);
+  text-decoration: line-through;
+}
+
+/* ─── Horizontal Rule ──────────────────────────────────────────────────────── */
+
+.ProseMirror hr {
+  border: none;
+  border-top: 1px solid var(--rp-border-default);
+  margin: var(--rp-space-6) 0;
+}
+
+.ProseMirror hr.ProseMirror-selectednode {
+  border-top-color: var(--rp-accent);
+}
+
+/* ─── Images ───────────────────────────────────────────────────────────────── */
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--rp-radius-md);
+  margin: var(--rp-space-3) 0;
+  display: block;
+}
+
+.ProseMirror img.ProseMirror-selectednode {
+  outline: 2px solid var(--rp-accent);
+  outline-offset: 2px;
+}
+
+/* ─── Tables ───────────────────────────────────────────────────────────────── */
+
+.ProseMirror table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: var(--rp-space-3) 0;
+  table-layout: fixed;
+  overflow: hidden;
+}
+
+.ProseMirror td,
+.ProseMirror th {
+  border: 1px solid var(--rp-border-table);
+  padding: var(--rp-space-2) var(--rp-space-3);
+  vertical-align: top;
+  position: relative;
+  min-width: 80px;
+  text-align: left;
+}
+
+.ProseMirror th {
+  background: var(--rp-bg-table-header);
+  font-weight: var(--rp-weight-semibold);
+  font-size: var(--rp-text-sm);
+  color: var(--rp-fg-secondary);
+}
+
+.ProseMirror td p,
+.ProseMirror th p {
+  margin: 0;
+}
+
+.ProseMirror .selectedCell {
+  background: var(--rp-bg-table-selected);
+}
+
+.ProseMirror .selectedCell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--rp-accent);
+  pointer-events: none;
+}
+
+/* ─── Highlight / Mark ─────────────────────────────────────────────────────── */
+
+.ProseMirror mark {
+  background: var(--rp-bg-highlight);
+  border-radius: var(--rp-radius-xs);
+  padding: 1px 2px;
+}
+
+/* ─── Mentions ─────────────────────────────────────────────────────────────── */
+
+.ProseMirror .mention {
+  background: var(--rp-bg-mention);
+  color: var(--rp-accent);
+  border-radius: var(--rp-radius-full);
+  padding: 1px 6px;
+  font-weight: var(--rp-weight-medium);
+  font-size: 0.95em;
+  white-space: nowrap;
+  box-decoration-break: clone;
+}
+
+/* ─── Selection ────────────────────────────────────────────────────────────── */
+
+.ProseMirror ::selection {
+  background: var(--rp-selection-bg);
+  color: var(--rp-selection-fg);
+}
+
+/* ─── Gapcursor ────────────────────────────────────────────────────────────── */
+
+.ProseMirror .ProseMirror-gapcursor::after {
+  border-top-color: var(--rp-fg-primary);
+}
+
+/* ─── Node Selection ───────────────────────────────────────────────────────── */
+
+.ProseMirror .ProseMirror-selectednode {
+  outline: 2px solid var(--rp-accent);
+  outline-offset: 2px;
+  border-radius: var(--rp-radius-sm);
+}
+
+/* ─── Scrollbar ────────────────────────────────────────────────────────────── */
+
+.rp-editor-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.rp-editor-scroll::-webkit-scrollbar-track {
+  background: var(--rp-scrollbar-track);
+}
+
+.rp-editor-scroll::-webkit-scrollbar-thumb {
+  background: var(--rp-scrollbar-thumb);
+  border-radius: var(--rp-radius-full);
+}
+
+.rp-editor-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--rp-scrollbar-thumb-hover);
+}
+
+/* ─── Syntax Highlighting (lowlight) ───────────────────────────────────────── */
+
+.ProseMirror pre .hljs-comment,
+.ProseMirror pre .hljs-quote {
+  color: var(--rp-fg-muted);
+  font-style: italic;
+}
+
+.ProseMirror pre .hljs-keyword,
+.ProseMirror pre .hljs-selector-tag,
+.ProseMirror pre .hljs-addition {
+  color: #c678dd;
+}
+
+.ProseMirror pre .hljs-number,
+.ProseMirror pre .hljs-string,
+.ProseMirror pre .hljs-meta .hljs-meta-string,
+.ProseMirror pre .hljs-literal,
+.ProseMirror pre .hljs-doctag,
+.ProseMirror pre .hljs-regexp {
+  color: #98c379;
+}
+
+.ProseMirror pre .hljs-title,
+.ProseMirror pre .hljs-section,
+.ProseMirror pre .hljs-name,
+.ProseMirror pre .hljs-selector-id,
+.ProseMirror pre .hljs-selector-class {
+  color: #e06c75;
+}
+
+.ProseMirror pre .hljs-attribute,
+.ProseMirror pre .hljs-attr,
+.ProseMirror pre .hljs-variable,
+.ProseMirror pre .hljs-template-variable,
+.ProseMirror pre .hljs-class .hljs-title,
+.ProseMirror pre .hljs-type {
+  color: #d19a66;
+}
+
+.ProseMirror pre .hljs-symbol,
+.ProseMirror pre .hljs-bullet,
+.ProseMirror pre .hljs-subst,
+.ProseMirror pre .hljs-meta,
+.ProseMirror pre .hljs-meta .hljs-keyword,
+.ProseMirror pre .hljs-selector-attr,
+.ProseMirror pre .hljs-selector-pseudo,
+.ProseMirror pre .hljs-link {
+  color: #61aeee;
+}
+
+.ProseMirror pre .hljs-built_in,
+.ProseMirror pre .hljs-deletion {
+  color: #e06c75;
+}
+
+.ProseMirror pre .hljs-formula {
+  background: var(--rp-bg-code);
+}
+
+.ProseMirror pre .hljs-emphasis {
+  font-style: italic;
+}
+
+.ProseMirror pre .hljs-strong {
+  font-weight: var(--rp-weight-bold);
+}

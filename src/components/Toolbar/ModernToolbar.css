@@ -1,0 +1,99 @@
+/* ─── Modern Toolbar Root ──────────────────────────────────────────────────── */
+
+.rp-modern-toolbar {
+  position: relative;
+  z-index: var(--rp-z-sticky);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 12px;
+  background: var(--rp-bg-elevated);
+  border-bottom: 1px solid var(--rp-border-color);
+  user-select: none;
+}
+
+/* ─── Buttons ───────────────────────────────────────────────────────────────── */
+
+.rp-modern-toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 6px;
+  border: none;
+  background: transparent;
+  color: var(--rp-text-secondary);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.rp-modern-toolbar-btn:hover:not(:disabled) {
+  background: var(--rp-bg-hover);
+  color: var(--rp-text-primary);
+}
+
+.rp-modern-toolbar-btn:active:not(:disabled) {
+  background: var(--rp-bg-active);
+}
+
+.rp-modern-toolbar-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Active State (Light Blue Jira Style) */
+.rp-modern-toolbar-btn--active {
+  background: #e9f2ff !important;
+  color: #0c66e4 !important;
+}
+
+/* Dark mode adjustment for active state */
+.rp-theme-dark .rp-modern-toolbar-btn--active {
+  background: #1c2b41 !important;
+  color: #579dff !important;
+}
+
+/* ─── Specific Button Types ─────────────────────────────────────────────────── */
+
+.rp-modern-toolbar-btn-text {
+  font-weight: 500;
+  padding: 0 8px;
+}
+
+.rp-modern-toolbar-btn-icon-only {
+  padding: 0;
+  width: 32px;
+}
+
+/* The separator dot or small gap used instead of dividers */
+.rp-modern-toolbar-spacer {
+  width: 8px;
+  height: 32px;
+}
+
+/* ─── Split Button Group (Button + Chevron) ─────────────────────────────────── */
+
+.rp-modern-toolbar-split-group {
+  display: flex;
+  align-items: center;
+}
+
+.rp-modern-toolbar-split-btn {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.rp-modern-toolbar-split-trigger {
+  min-width: 24px;
+  width: 24px;
+  padding: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: 1px;
+}

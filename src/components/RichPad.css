@@ -1,0 +1,71 @@
+/* ─── RichPad Container ────────────────────────────────────────────────────── */
+
+.rp-root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--rp-border-default);
+  border-radius: var(--rp-radius-lg);
+  background: var(--rp-bg-primary);
+  overflow: hidden;
+  font-family: var(--rp-font-sans);
+  transition: border-color var(--rp-transition-normal), box-shadow var(--rp-transition-normal);
+}
+
+/* ─── Focus State ──────────────────────────────────────────────────────────── */
+
+.rp-root--focused {
+  border-color: var(--rp-border-focus);
+  box-shadow: var(--rp-shadow-focus);
+}
+
+/* ─── Disabled State ───────────────────────────────────────────────────────── */
+
+.rp-root--disabled {
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.rp-root--disabled .rp-editor-content-wrapper {
+  background: var(--rp-bg-tertiary);
+}
+
+/* ─── Read-Only State ──────────────────────────────────────────────────────── */
+
+.rp-root--readonly {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+
+.rp-root--readonly:hover {
+  border-color: transparent;
+}
+
+/* ─── Editor Content Area ──────────────────────────────────────────────────── */
+
+.rp-editor-scroll {
+  flex: 1;
+}
+
+.rp-editor-content-wrapper {
+  height: 100%;
+}
+
+.rp-editor-content-wrapper .ProseMirror {
+  padding: var(--rp-space-3) var(--rp-space-4);
+  min-height: inherit;
+  cursor: text;
+}
+
+.rp-root--readonly .rp-editor-content-wrapper .ProseMirror {
+  padding: var(--rp-space-2) 0;
+  cursor: default;
+}
+
+/* ─── Hover State (non-focused) ────────────────────────────────────────────── */
+
+.rp-root:not(.rp-root--focused):not(.rp-root--disabled):not(.rp-root--readonly):hover {
+  border-color: var(--rp-border-strong);
+}

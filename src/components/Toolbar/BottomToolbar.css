@@ -1,0 +1,250 @@
+/* ─── Bottom Toolbar ─────────────────────────────────────────────────────────── */
+
+.rp-bottom-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 10px;
+  min-height: 40px;
+  background: var(--rp-bg-elevated);
+  border-top: 1px solid var(--rp-border-subtle);
+  user-select: none;
+  position: sticky;
+  bottom: 0;
+  z-index: var(--rp-z-sticky);
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.rp-bottom-toolbar::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* ─── Divider ────────────────────────────────────────────────────────────────── */
+
+.rp-bottom-toolbar-divider {
+  width: 1px;
+  height: 18px;
+  background: var(--rp-border-subtle);
+  margin: 0 4px;
+  flex-shrink: 0;
+}
+
+/* ─── Spacer ─────────────────────────────────────────────────────────────────── */
+
+.rp-bottom-toolbar-spacer {
+  flex: 1;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────────────────── */
+
+.rp-bottom-toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--rp-fg-secondary);
+  border-radius: var(--rp-radius-sm);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--rp-transition-fast), color var(--rp-transition-fast);
+  position: relative;
+}
+
+.rp-bottom-toolbar-btn:hover:not(:disabled) {
+  background: var(--rp-bg-hover);
+  color: var(--rp-fg-primary);
+}
+
+.rp-bottom-toolbar-btn:active:not(:disabled) {
+  background: var(--rp-bg-active);
+}
+
+.rp-bottom-toolbar-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.rp-bottom-toolbar-btn--active {
+  background: var(--rp-bg-selected);
+  color: var(--rp-accent);
+}
+
+.rp-bottom-toolbar-btn--active:hover:not(:disabled) {
+  background: var(--rp-accent-subtle);
+  color: var(--rp-accent);
+}
+
+.rp-bottom-toolbar-btn svg {
+  flex-shrink: 0;
+}
+
+/* ─── Color Button ───────────────────────────────────────────────────────────── */
+
+.rp-bottom-toolbar-color-btn {
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.5px;
+}
+
+.rp-bottom-toolbar-color-indicator {
+  position: absolute;
+  bottom: 4px;
+  left: 7px;
+  right: 7px;
+  height: 2.5px;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* ─── Color Picker Popover ───────────────────────────────────────────────────── */
+
+.rp-bottom-color-popover {
+  background: var(--rp-bg-elevated);
+  border: 1px solid var(--rp-border-default);
+  border-radius: var(--rp-radius-lg);
+  box-shadow: var(--rp-shadow-lg);
+  padding: 10px;
+  min-width: 178px;
+}
+
+.rp-bottom-color-popover__title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--rp-fg-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  padding: 0 2px;
+}
+
+.rp-bottom-color-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 22px);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.rp-bottom-color-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.rp-bottom-color-swatch:hover {
+  transform: scale(1.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.rp-bottom-color-remove {
+  width: 100%;
+  padding: 5px 8px;
+  background: transparent;
+  border: 1px solid var(--rp-border-subtle);
+  border-radius: var(--rp-radius-sm);
+  color: var(--rp-fg-secondary);
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: background var(--rp-transition-fast);
+}
+
+.rp-bottom-color-remove:hover {
+  background: var(--rp-bg-hover);
+  color: var(--rp-fg-primary);
+}
+
+/* ─── Link Popover ───────────────────────────────────────────────────────────── */
+
+.rp-bottom-link-popover {
+  background: var(--rp-bg-elevated);
+  border: 1px solid var(--rp-border-default);
+  border-radius: var(--rp-radius-lg);
+  box-shadow: var(--rp-shadow-lg);
+  padding: 10px;
+  width: 300px;
+}
+
+.rp-bottom-link-popover__row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rp-bottom-link-popover__input {
+  flex: 1;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid var(--rp-border-default);
+  border-radius: var(--rp-radius-sm);
+  background: var(--rp-bg-primary);
+  color: var(--rp-fg-primary);
+  font-size: 13px;
+  outline: none;
+  transition: border-color var(--rp-transition-fast);
+}
+
+.rp-bottom-link-popover__input:focus {
+  border-color: var(--rp-accent);
+}
+
+.rp-bottom-link-popover__input::placeholder {
+  color: var(--rp-fg-placeholder);
+}
+
+.rp-bottom-link-popover__btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--rp-radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--rp-transition-fast);
+  flex-shrink: 0;
+}
+
+.rp-bottom-link-popover__btn--confirm {
+  background: var(--rp-accent);
+  color: #fff;
+}
+
+.rp-bottom-link-popover__btn--confirm:hover:not(:disabled) {
+  opacity: 0.88;
+}
+
+.rp-bottom-link-popover__btn--confirm:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.rp-bottom-link-popover__btn--cancel {
+  background: var(--rp-bg-hover);
+  color: var(--rp-fg-secondary);
+}
+
+.rp-bottom-link-popover__btn--cancel:hover {
+  background: var(--rp-bg-active);
+}
+
+.rp-bottom-link-popover__btn--remove {
+  background: transparent;
+  border: 1px solid var(--rp-border-subtle);
+  color: var(--rp-fg-destructive, #de350b);
+}
+
+.rp-bottom-link-popover__btn--remove:hover {
+  background: rgba(222, 53, 11, 0.08);
+}

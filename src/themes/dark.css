@@ -1,0 +1,71 @@
+/* ─── Dark Theme ──────────────────────────────────────────────────────────── */
+/* Inspired by GitHub Dark / Linear — deep surfaces, bright accents.          */
+
+.rp-theme-dark {
+  /* ─── Backgrounds ────────────────────────────────────────────────────── */
+  --rp-bg-primary: #1d2125;
+  --rp-bg-secondary: #22272b;
+  --rp-bg-tertiary: #282e33;
+  --rp-bg-elevated: #2c333a;
+  --rp-bg-overlay: rgba(3, 3, 3, 0.56);
+  --rp-bg-hover: #2c333a;
+  --rp-bg-active: #343a41;
+  --rp-bg-selected: #1c2b41;
+  --rp-bg-toolbar: #22272b;
+  --rp-bg-code: #282e33;
+  --rp-bg-code-block: #1b2028;
+  --rp-bg-blockquote: #282e33;
+  --rp-bg-highlight: #332e1b;
+  --rp-bg-mention: #1c2b41;
+  --rp-bg-table-header: #282e33;
+  --rp-bg-table-selected: #1c2b41;
+
+  /* ─── Foreground / Text ──────────────────────────────────────────────── */
+  --rp-fg-primary: #dee4ea;
+  --rp-fg-secondary: #9fadbc;
+  --rp-fg-tertiary: #8c9bab;
+  --rp-fg-muted: #6b778c;
+  --rp-fg-disabled: #505762;
+  --rp-fg-inverse: #1d2125;
+  --rp-fg-link: #579dff;
+  --rp-fg-link-hover: #85b8ff;
+  --rp-fg-code: #e87a97;
+  --rp-fg-placeholder: #596773;
+
+  /* ─── Borders ────────────────────────────────────────────────────────── */
+  --rp-border-default: #3a4149;
+  --rp-border-subtle: #2c333a;
+  --rp-border-strong: #505762;
+  --rp-border-focus: #579dff;
+  --rp-border-error: #f87168;
+  --rp-border-table: #3a4149;
+
+  /* ─── Accent / Brand ─────────────────────────────────────────────────── */
+  --rp-accent: #579dff;
+  --rp-accent-hover: #85b8ff;
+  --rp-accent-subtle: #1c2b41;
+  --rp-accent-bold: #388bff;
+
+  /* ─── Status Colors ──────────────────────────────────────────────────── */
+  --rp-color-success: #4bce97;
+  --rp-color-warning: #f5cd47;
+  --rp-color-error: #f87168;
+  --rp-color-info: #579dff;
+
+  /* ─── Shadows ────────────────────────────────────────────────────────── */
+  --rp-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --rp-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 1px rgba(0, 0, 0, 0.2);
+  --rp-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 1px rgba(0, 0, 0, 0.2);
+  --rp-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 1px rgba(0, 0, 0, 0.2);
+  --rp-shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.4), 0 0 1px rgba(0, 0, 0, 0.3);
+  --rp-shadow-focus: 0 0 0 2px #579dff;
+
+  /* ─── Selection ──────────────────────────────────────────────────────── */
+  --rp-selection-bg: #1c3d5c;
+  --rp-selection-fg: inherit;
+
+  /* ─── Scrollbar ──────────────────────────────────────────────────────── */
+  --rp-scrollbar-track: transparent;
+  --rp-scrollbar-thumb: #505762;
+  --rp-scrollbar-thumb-hover: #6b778c;
+}

@@ -1,0 +1,76 @@
+/* ─── Tooltip ──────────────────────────────────────────────────────────────── */
+
+.rp-tooltip-trigger {
+  display: inline-flex;
+  position: relative;
+}
+
+.rp-tooltip {
+  position: absolute;
+  z-index: var(--rp-z-tooltip);
+  padding: var(--rp-space-1) var(--rp-space-2);
+  background: var(--rp-fg-primary);
+  color: var(--rp-fg-inverse);
+  font-family: var(--rp-font-sans);
+  font-size: var(--rp-text-xs);
+  font-weight: var(--rp-weight-medium);
+  line-height: var(--rp-leading-normal);
+  border-radius: var(--rp-radius-sm);
+  white-space: nowrap;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: var(--rp-space-1-5);
+  animation: rp-tooltip-fade-in var(--rp-transition-fast) ease;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rp-tooltip--top {
+  bottom: calc(100% + 6px);
+}
+
+.rp-tooltip--bottom {
+  top: calc(100% + 6px);
+}
+
+.rp-tooltip__text {
+  flex-shrink: 0;
+}
+
+.rp-tooltip__shortcut {
+  font-family: var(--rp-font-sans);
+  font-size: var(--rp-text-xs);
+  opacity: 0.7;
+  border: none;
+  background: none;
+  color: inherit;
+  padding: 0;
+  margin-left: var(--rp-space-1);
+}
+
+@keyframes rp-tooltip-fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.rp-tooltip--bottom .rp-tooltip__text {
+  animation-name: rp-tooltip-fade-in-bottom;
+}
+
+@keyframes rp-tooltip-fade-in-bottom {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

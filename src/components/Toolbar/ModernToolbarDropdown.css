@@ -1,0 +1,131 @@
+/* ─── Dropdown Container ───────────────────────────────────────────────────── */
+
+.rp-modern-dropdown-menu {
+  background: var(--rp-bg-elevated);
+  border: 1px solid var(--rp-border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.2);
+  padding: 8px 0;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  z-index: 1000;
+}
+
+.rp-theme-dark .rp-modern-dropdown-menu {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), 0 0 1px rgba(0, 0, 0, 0.6);
+}
+
+/* ─── Dropdown Item ───────────────────────────────────────────────────────── */
+
+.rp-modern-dropdown-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 6px 16px;
+  border: none;
+  background: transparent;
+  color: var(--rp-text-primary);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+}
+
+.rp-modern-dropdown-item:hover,
+.rp-modern-dropdown-item:focus {
+  background: var(--rp-bg-hover);
+}
+
+/* Active Selection */
+.rp-modern-dropdown-item--active {
+  background: #e9f2ff !important;
+  color: #0c66e4 !important;
+}
+
+.rp-theme-dark .rp-modern-dropdown-item--active {
+  background: #1c2b41 !important;
+  color: #579dff !important;
+}
+
+/* ─── Item Contents ───────────────────────────────────────────────────────── */
+
+.rp-modern-dropdown-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  margin-right: 12px;
+  color: var(--rp-text-secondary);
+}
+
+.rp-modern-dropdown-item--active .rp-modern-dropdown-item-icon {
+  color: inherit;
+}
+
+.rp-modern-dropdown-item-label {
+  flex-grow: 1;
+}
+
+.rp-modern-dropdown-item-shortcut {
+  display: flex;
+  align-items: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  color: var(--rp-text-tertiary);
+  background: var(--rp-bg-secondary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 12px;
+}
+
+/* ─── Divider ─────────────────────────────────────────────────────────────── */
+
+.rp-modern-dropdown-divider {
+  height: 1px;
+  background: var(--rp-border-color);
+  margin: 4px 0;
+}
+
+/* ─── Color Grid ──────────────────────────────────────────────────────────── */
+
+.rp-modern-dropdown-color-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  padding: 8px 16px;
+}
+
+.rp-modern-color-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.1);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* For the checkmark */
+}
+
+.rp-modern-color-btn:hover {
+  transform: scale(1.1);
+}
+
+.rp-modern-color-remove {
+  margin: 0 16px 8px 16px;
+  padding: 6px;
+  text-align: center;
+  border: 1px solid var(--rp-border-color);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  color: var(--rp-text-primary);
+}
+
+.rp-modern-color-remove:hover {
+  background: var(--rp-bg-hover);
+}

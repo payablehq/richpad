@@ -1,0 +1,33 @@
+/* ─── Bubble Toolbar ───────────────────────────────────────────────────────── */
+
+.rp-bubble-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--rp-space-0-5);
+  padding: var(--rp-space-1);
+  background: var(--rp-bg-elevated);
+  border: 1px solid var(--rp-border-default);
+  border-radius: var(--rp-radius-md);
+  box-shadow: var(--rp-shadow-lg);
+  position: fixed;
+  z-index: var(--rp-z-tooltip);
+}
+
+.rp-bubble-divider {
+  width: 1px;
+  height: 16px;
+  background: var(--rp-border-subtle);
+  margin: 0 var(--rp-space-0-5);
+  flex-shrink: 0;
+}
+
+/* Override Tippy theme */
+.tippy-box[data-theme~="light"] {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.tippy-box[data-theme~="light"] .tippy-arrow {
+  display: none;
+}
