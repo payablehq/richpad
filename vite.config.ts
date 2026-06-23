@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
+import pkg from './package.json'
 
 const buildMode = process.env.BUILD_MODE // 'lib' | 'demo' | undefined (dev)
 
@@ -20,8 +21,12 @@ export default defineConfig({
           formats: ['es', 'cjs'],
         },
         rollupOptions: {
-          // Only externalise React — everything else is bundled (batteries-included)
-          external: ['react', 'react-dom', 'react/jsx-runtime'],
+          // Externalise all dependencies and peerDependencies (and their subpaths/deep imports)
+          external: [
+            ...Object.keys(pkg.peerDependencies || {}),
+            ...Object.keys(pkg.dependencies || {}),
+            /^(react|react-dom|@tiptap\/|lucide-react|dompurify|lowlight)/,
+          ],
           output: {
             globals: {
               react: 'React',
