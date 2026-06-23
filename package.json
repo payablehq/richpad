@@ -11,13 +11,24 @@
     "richpad",
     "payablehq"
   ],
-  "author": "Jaideep Ghosh <jaideep@payable.co.in>",
+  "author": "PayableHQ",
   "license": "MIT",
   "homepage": "https://payablehq.github.io/richpad",
   "repository": {
     "type": "git",
-    "url": "https://github.com/payablehq/richpad"
+    "url": "git+https://github.com/payablehq/richpad.git"
   },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/payablehq"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "npm@11.6.0",
   "bugs": {
     "url": "https://github.com/payablehq/richpad/issues"
   },
