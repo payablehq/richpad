@@ -9,6 +9,17 @@
 
 ---
 
+#### Full Editor Example
+<img width="910" height="641" alt="image" src="https://github.com/user-attachments/assets/f72543d4-d3b2-4ef5-961e-6a7e54aa514b" />
+
+#### Color Picker
+<img width="912" height="239" alt="image" src="https://github.com/user-attachments/assets/d545aeec-e393-4aab-b3bf-d443c1655124" />
+
+#### Inline Editor
+<img width="905" height="313" alt="image" src="https://github.com/user-attachments/assets/51af77a1-b2ea-447a-acd5-99a81f6120fa" />
+
+---
+
 ## Features
 
 - ✅ **Batteries-included** — all dependencies bundled, only `react` + `react-dom` required
