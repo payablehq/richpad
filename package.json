@@ -1,16 +1,58 @@
 {
-  "name": "richpad",
-  "private": true,
-  "version": "0.0.1",
-  "type": "module",
+  "name": "@payablehq/richpad",
+  "version": "1.0.0",
+  "description": "Enterprise-grade rich text editor component built with Tiptap, React, and TypeScript.",
+  "keywords": [
+    "rich-text-editor",
+    "tiptap",
+    "react",
+    "wysiwyg",
+    "editor",
+    "richpad",
+    "payablehq"
+  ],
+  "author": "Jaideep Ghosh <jaideep@payable.co.in>",
+  "license": "MIT",
+  "homepage": "https://payablehq.github.io/richpad",
   "repository": {
+    "type": "git",
     "url": "https://github.com/payablehq/richpad"
   },
+  "bugs": {
+    "url": "https://github.com/payablehq/richpad/issues"
+  },
+  "type": "module",
+  "main": "./dist/richpad.cjs",
+  "module": "./dist/richpad.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/richpad.js",
+      "require": "./dist/richpad.cjs",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./styles": "./dist/richpad.css"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build:lib": "tsc -p tsconfig.lib.json && BUILD_MODE=lib vite build",
+    "build:demo": "BUILD_MODE=demo vite build",
+    "build": "npm run build:lib",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build:lib"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "dependencies": {
     "@tiptap/extension-code-block-lowlight": "^3.27.1",
@@ -41,8 +83,6 @@
     "dompurify": "^3.4.11",
     "lowlight": "^3.3.0",
     "lucide-react": "^1.21.0",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
     "tippy.js": "^6.3.7",
     "tiptap-markdown": "^0.9.0"
   },
@@ -56,6 +96,8 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",
     "vite": "^8.0.12"

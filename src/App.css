@@ -349,3 +349,82 @@ body {
     justify-content: center;
   }
 }
+
+/* ─── Hero ──────────────────────────────────────────────────────────────────── */
+
+.app-hero {
+  padding: 24px 0 8px;
+  text-align: center;
+}
+
+.app-hero__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--app-text);
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.app-hero__subtitle {
+  font-size: 15px;
+  color: var(--app-text-secondary);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ─── Installation ──────────────────────────────────────────────────────────── */
+
+.app-install {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.app-install__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--app-border);
+}
+
+.app-install__row:last-child {
+  border-bottom: none;
+}
+
+.app-install__pm {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--app-text-muted);
+  width: 36px;
+  flex-shrink: 0;
+}
+
+.app-install__cmd {
+  flex: 1;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--app-accent);
+  background: transparent;
+}
+
+.app-install__copy {
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.app-install__row:hover .app-install__copy {
+  opacity: 1;
+}
+
+/* ─── Header link anchor ────────────────────────────────────────────────────── */
+
+a.app-theme-toggle {
+  text-decoration: none;
+  cursor: pointer;
+}
+

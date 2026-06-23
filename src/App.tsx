@@ -11,6 +11,8 @@ import {
   Copy,
   Check,
   RotateCcw,
+  GitFork,
+  Package,
 } from "lucide-react";
 import "./App.css";
 
@@ -59,6 +61,23 @@ function App() {
 <p>Try editing this content, using keyboard shortcuts (<strong>⌘+B</strong> for bold, <strong>⌘+I</strong> for italic), or the slash command menu by typing <code>/</code> at the start of a line.</p>
 `;
 
+// ─── Quick Start Code Snippet ─────────────────────────────────────────────────
+
+const QUICK_START_CODE = `import { RichPad } from '@payablehq/richpad';
+import '@payablehq/richpad/styles';
+
+function MyEditor() {
+  return (
+    <RichPad
+      placeholder="Start writing..."
+      theme={{ mode: 'light' }}
+      toolbarVariant="modern"   // 'standard' | 'modern' | 'bottom'
+      onChange={(html) => console.log(html)}
+      minHeight={200}
+    />
+  );
+}`;
+
 // ─── Output Format Tabs ──────────────────────────────────────────────────────
 
 type OutputTab = "html" | "json" | "markdown" | "text";
@@ -80,6 +99,15 @@ export default function App() {
   const editorRef = useRef<RichPadRef>(null);
 
   const isDark = theme === "dark";
+  const [copiedSnippet, setCopiedSnippet] = useState<string | null>(null);
+
+  const copySnippet = useCallback(async (text: string, key: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedSnippet(key);
+      setTimeout(() => setCopiedSnippet(null), 2000);
+    } catch { /* ignore */ }
+  }, []);
 
   const toggleTheme = useCallback(() => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
@@ -148,11 +176,31 @@ export default function App() {
             <div className="app-logo__icon">RP</div>
             <div className="app-logo__text">
               <span className="app-logo__name">RichPad</span>
-              <span className="app-logo__tag">Enterprise Editor</span>
+              <span className="app-logo__tag">@payablehq/richpad</span>
             </div>
           </div>
         </div>
         <div className="app-header__right">
+          <a
+            className="app-theme-toggle"
+            href="https://github.com/payablehq/richpad"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View on GitHub"
+          >
+            <GitFork size={16} />
+            <span>GitHub</span>
+          </a>
+          <a
+            className="app-theme-toggle"
+            href="https://www.npmjs.com/package/@payablehq/richpad"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View on npm"
+          >
+            <Package size={16} />
+            <span>npm</span>
+          </a>
           <button
             className="app-theme-toggle"
             onClick={toggleTheme}
@@ -166,6 +214,59 @@ export default function App() {
 
       <main className="app-main">
         <div className="app-content">
+
+          {/* ── Hero ── */}
+          <div className="app-hero">
+            <h1 className="app-hero__title">Enterprise Rich Text Editor</h1>
+            <p className="app-hero__subtitle">
+              A batteries-included, production-ready rich text editor for React. Multiple toolbar
+              variants, dark mode, @mentions, /slash commands, tables, code blocks and more.
+            </p>
+          </div>
+
+          {/* ── Installation ── */}
+          <section className="app-section">
+            <div className="app-section__header">
+              <h2 className="app-section__title">Installation</h2>
+            </div>
+            <div className="app-install">
+              {[
+                { key: 'npm', cmd: 'npm install @payablehq/richpad' },
+                { key: 'yarn', cmd: 'yarn add @payablehq/richpad' },
+                { key: 'pnpm', cmd: 'pnpm add @payablehq/richpad' },
+              ].map(({ key, cmd }) => (
+                <div key={key} className="app-install__row">
+                  <span className="app-install__pm">{key}</span>
+                  <code className="app-install__cmd">{cmd}</code>
+                  <button
+                    className="app-btn app-btn--ghost app-install__copy"
+                    onClick={() => copySnippet(cmd, key)}
+                    aria-label={`Copy ${key} command`}
+                  >
+                    {copiedSnippet === key ? <Check size={14} /> : <Copy size={14} />}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* ── Quick Start ── */}
+          <section className="app-section">
+            <div className="app-section__header">
+              <h2 className="app-section__title">Quick Start</h2>
+              <button
+                className="app-btn app-btn--ghost"
+                onClick={() => copySnippet(QUICK_START_CODE, 'qs')}
+              >
+                {copiedSnippet === 'qs' ? <Check size={14} /> : <Copy size={14} />}
+                <span>{copiedSnippet === 'qs' ? 'Copied!' : 'Copy'}</span>
+              </button>
+            </div>
+            <div className="app-output">
+              <pre className="app-output__code"><code>{QUICK_START_CODE}</code></pre>
+            </div>
+          </section>
+
           {/* Example 1: Full Editor */}
           <section className="app-section">
             <div className="app-section__header">
