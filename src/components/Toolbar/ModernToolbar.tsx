@@ -158,20 +158,6 @@ export function ModernToolbar({ editor }: ModernToolbarProps) {
         <CodeSquare size={16} />
       </button>
 
-      <button
-        className="rp-modern-toolbar-btn rp-modern-toolbar-btn-icon-only"
-        title="Emoji (placeholder)"
-      >
-        <Smile size={16} />
-      </button>
-
-      <button
-        className="rp-modern-toolbar-btn rp-modern-toolbar-btn-icon-only"
-        title="Insert (placeholder)"
-      >
-        <Plus size={16} />
-      </button>
-
       <div style={{ position: "relative" }}>
         <button
           className={cn(
