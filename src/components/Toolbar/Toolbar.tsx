@@ -42,16 +42,16 @@ export function Toolbar({ editor }: ToolbarProps) {
 
     const update = () => forceUpdate({});
 
-    editor.on('transaction', update);
-    editor.on('selectionUpdate', update);
-    editor.on('update', update);
-    editor.on('focus', update);
+    editor.on("transaction", update);
+    editor.on("selectionUpdate", update);
+    editor.on("update", update);
+    editor.on("focus", update);
 
     return () => {
-      editor.off('transaction', update);
-      editor.off('selectionUpdate', update);
-      editor.off('update', update);
-      editor.off('focus', update);
+      editor.off("transaction", update);
+      editor.off("selectionUpdate", update);
+      editor.off("update", update);
+      editor.off("focus", update);
     };
   }, [editor]);
 
@@ -197,10 +197,10 @@ export function Toolbar({ editor }: ToolbarProps) {
         />
       </ToolbarGroup>
 
-      <ToolbarDivider />
+      <ToolbarDivider className="rp-toolbar-divider--hide-md" />
 
       {/* Block elements */}
-      <ToolbarGroup>
+      <ToolbarGroup className="rp-toolbar-group--hide-md">
         <ToolbarButton
           icon={<Quote size={16} />}
           label="Blockquote"
@@ -222,10 +222,10 @@ export function Toolbar({ editor }: ToolbarProps) {
         />
       </ToolbarGroup>
 
-      <ToolbarDivider />
+      <ToolbarDivider className="rp-toolbar-divider--hide-sm" />
 
       {/* Insert */}
-      <ToolbarGroup>
+      <ToolbarGroup className="rp-toolbar-group--hide-sm">
         <div style={{ position: "relative" }}>
           <ToolbarButton
             icon={<Link size={16} />}

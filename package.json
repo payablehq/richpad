@@ -1,6 +1,6 @@
 {
   "name": "@payablehq/richpad",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Enterprise-grade rich text editor component built with Tiptap, React, and TypeScript.",
   "keywords": [
     "rich-text-editor",

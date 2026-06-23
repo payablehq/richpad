@@ -97,3 +97,45 @@
   border-bottom-left-radius: 0;
   margin-left: 1px;
 }
+
+/* ─── Toolbar Groups ─────────────────────────────────────────────────────── */
+
+.rp-modern-tg {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.rp-modern-tg-sep {
+  display: block;
+  width: 1px;
+  height: 20px;
+  background: var(--rp-border-color);
+  margin: 0 4px;
+  flex-shrink: 0;
+}
+
+.rp-modern-toolbar-flex-spacer {
+  flex: 1;
+  min-width: 4px;
+}
+
+.rp-modern-toolbar-align-trigger {
+  padding: 0 6px;
+  gap: 2px;
+  min-width: 44px;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .rp-modern-tg--hide-md {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .rp-modern-tg--hide-sm {
+    display: none !important;
+  }
+}

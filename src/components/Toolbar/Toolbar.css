@@ -78,3 +78,19 @@
   margin: 0 var(--rp-space-1);
   flex-shrink: 0;
 }
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .rp-toolbar-group--hide-md,
+  .rp-toolbar-divider--hide-md {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .rp-toolbar-group--hide-sm,
+  .rp-toolbar-divider--hide-sm {
+    display: none !important;
+  }
+}
